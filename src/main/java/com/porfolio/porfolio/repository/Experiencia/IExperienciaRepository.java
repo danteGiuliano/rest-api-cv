@@ -15,5 +15,5 @@ public interface IExperienciaRepository  {
     
     public List<Experiencia> obtenerExperiencias();
     public void agregarExperiencia(Experiencia experiencia);
-    
+    public void eliminarExperiencia(Experiencia experiencia);
 }

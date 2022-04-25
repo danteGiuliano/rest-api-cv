@@ -20,8 +20,5 @@ public class Skill {
     private int id;
     private String nombre;
     private int porcentaje;
-    @ManyToOne
-    private Persona persona;
-    
     
 }

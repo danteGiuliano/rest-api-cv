@@ -22,10 +22,11 @@ public class PersonaService implements IPersonaRepository{
     private PersonaRepository repository;
 
     @Override
-    public List<Persona> obtenerPersonas() {
-        return this.repository.findAll();
+    public Persona obtenerPersona(){
+        return this.repository.findAll().get(0);
     }
     public void agregarPersona(Persona persona){
     this.repository.save(persona);
     }
+
 }

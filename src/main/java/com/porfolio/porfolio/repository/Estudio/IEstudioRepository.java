@@ -14,4 +14,5 @@ import java.util.List;
 public interface IEstudioRepository {
     public List<Estudio> obtenerEstudios();
     public void agregarEstudio(Estudio estudio);
+    public void eliminarEstudio(Estudio estudio);
 }

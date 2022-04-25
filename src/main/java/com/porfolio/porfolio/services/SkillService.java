@@ -28,5 +28,10 @@ public class SkillService implements ISkillRepository {
     public void agregarSkill(Skill skill) {
         this.repository.save(skill);
     }
+
+    @Override
+    public void eliminarSkill(Skill skill) {
+        this.repository.delete(skill);
+    }
     
 }

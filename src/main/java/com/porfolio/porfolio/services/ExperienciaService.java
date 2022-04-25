@@ -28,5 +28,10 @@ public class ExperienciaService implements IExperienciaRepository {
     public void agregarExperiencia(Experiencia experiencia) {
         this.repository.save(experiencia);
     }
+
+    @Override
+    public void eliminarExperiencia(Experiencia experiencia) {
+        this.repository.delete(experiencia);
+    }
     
 }

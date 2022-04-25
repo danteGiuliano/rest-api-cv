@@ -24,6 +24,4 @@ public class Estudio {
    private String acerca_de;
    private String fecha_fin;
    private String url_logo;
-   @ManyToOne
-   private Persona persona;
 }

@@ -8,10 +8,16 @@ import javax.persistence.*;
 import lombok.*;
 @Entity
 @Getter @Setter
+@Table(name = "Persona", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }),
+		@UniqueConstraint(columnNames = { "email" }) })
 public class Persona {
 @Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String password;
+    private String username;
+    private String email;
+
     private String nombre;
     private String apellido;
     private String especialidad;

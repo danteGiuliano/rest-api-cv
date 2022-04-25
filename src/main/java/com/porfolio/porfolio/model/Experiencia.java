@@ -24,6 +24,4 @@ public class Experiencia {
     private String nombre_empresa;
     private String acerca_trabajo;
     private String url_imagen;
-    @ManyToOne
-    private Persona persona;
 }

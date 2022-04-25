@@ -12,5 +12,5 @@ import java.util.List;
  * @author dante
  */
 public interface IPersonaRepository {  
-    public List<Persona> obtenerPersonas();
+    public Persona obtenerPersona();
 }

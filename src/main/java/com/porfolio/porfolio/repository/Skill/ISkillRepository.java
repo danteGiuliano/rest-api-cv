@@ -15,4 +15,5 @@ public interface ISkillRepository {
     
     public List<Skill> obtenerSkills();
     public void agregarSkill(Skill skill);
+    public void eliminarSkill(Skill skill);
 }

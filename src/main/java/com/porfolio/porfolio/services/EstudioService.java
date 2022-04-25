@@ -30,6 +30,12 @@ public class EstudioService implements IEstudioRepository{
     public void agregarEstudio(Estudio estudio) {
         this.repository.save(estudio);
     }
+
+    @Override
+    public void eliminarEstudio(Estudio estudio) {
+        this.repository.delete(estudio);
+    }
+    
     
     
 }
