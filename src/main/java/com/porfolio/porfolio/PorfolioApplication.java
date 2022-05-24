@@ -11,26 +11,26 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @CrossOrigin(origins = "/**")
 @SpringBootApplication
 public class PorfolioApplication {
-    
+
     @Bean
-	public ModelMapper modelMapper() {
-		return new ModelMapper();
-	}
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
+    }
 
+    public static void main(String[] args) {
+        SpringApplication.run(PorfolioApplication.class, args);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(PorfolioApplication.class, args);
-	}   
-         @Bean
-public WebMvcConfigurer corsConfigurer() {
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
-                @Override
-                public void addCorsMappings(CorsRegistry registry) {
-                        registry.addMapping("/**").allowedOrigins("https//localhost:4200").allowedMethods("*")
-                                .allowedHeaders("*");
-                }
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**").allowedOrigins("**").allowedMethods("*")
+                        .allowedHeaders("*");
+            }
 
         };
-}
+    }
 
 }

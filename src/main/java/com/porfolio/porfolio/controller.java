@@ -9,6 +9,7 @@ import com.porfolio.porfolio.model.Estudio;
 import com.porfolio.porfolio.model.Experiencia;
 import com.porfolio.porfolio.model.Foto;
 import com.porfolio.porfolio.model.Persona;
+import com.porfolio.porfolio.model.Proyecto;
 import com.porfolio.porfolio.model.Skill;
 import com.porfolio.porfolio.repository.security.JWTAuthResonseDTO;
 import com.porfolio.porfolio.repository.security.JwtTokenProvider;
@@ -16,7 +17,9 @@ import com.porfolio.porfolio.services.EstudioService;
 import com.porfolio.porfolio.services.ExperienciaService;
 import com.porfolio.porfolio.services.FotoService;
 import com.porfolio.porfolio.services.PersonaService;
+import com.porfolio.porfolio.services.ProyectoService;
 import com.porfolio.porfolio.services.SkillService;
+import io.jsonwebtoken.Claims;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -42,6 +45,8 @@ public class controller {
     @Autowired
     private SkillService skill;
     @Autowired
+    private ProyectoService proyecto; 
+    @Autowired
     private ExperienciaService experiencia;
     @Autowired
     private FotoService foto;
@@ -54,6 +59,12 @@ public class controller {
     public String test() {
         return "Api funcionando";
     }
+    
+    @PostMapping("/tokenValido")
+    public ResponseEntity<?> tokenValido(){
+        return ResponseEntity.ok(true);
+    }
+
 
     @PostMapping("/iniciarSesion")
     public ResponseEntity<?> authenticateUser(@RequestBody Login login) {
@@ -75,7 +86,11 @@ public class controller {
         this.persona.agregarPersona(persona);
         return this.refresh();
     }
-
+     @PostMapping("/agregarProyecto")
+    public ResponseEntity<?> actualizarProyecto(@RequestBody Proyecto proyecto) {
+        this.proyecto.agregarProyecto(proyecto);
+        return this.refresh();
+    }
     @PostMapping("/agregarEstudio")
     public void agregarEstudio(@RequestBody Estudio updatear) {
         this.estudio.agregarEstudio(updatear);
@@ -84,6 +99,9 @@ public class controller {
     @GetMapping("/extraerEstudios")
     public List<Estudio> getEstudios() {
         return this.estudio.obtenerEstudios();
+    }@GetMapping("/extraerProyectos")
+    public List<Proyecto> getProyecto() {
+        return this.proyecto.obtenerProyectos();
     }
 
     @PostMapping("/agregarSkill")
@@ -119,6 +137,10 @@ public class controller {
     @PostMapping("/eliminarExperiencia")
     public void eliminarExperiencia(@RequestBody Experiencia experiencia) {
         this.experiencia.eliminarExperiencia(experiencia);
+    }
+     @PostMapping("/eliminarProyecto")
+    public void eliminarProyecto(@RequestBody Proyecto proyecto) {
+        this.proyecto.eliminarProyecto(proyecto);
     }
 
     @PostMapping("/eliminarEstudio")

@@ -17,7 +17,7 @@ public class Persona {
     private String password;
     private String username;
     private String email;
-
+  
     private String nombre;
     private String apellido;
     private String especialidad;
